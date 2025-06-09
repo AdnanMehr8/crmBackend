@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 var corsOptions = {
-  origin: "http://localhost:5173",
+  origin: "https://crm-frontend-kxn7.vercel.app",
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 app.get("/", (req, res) => {

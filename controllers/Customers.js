@@ -18,9 +18,11 @@ async function getSingleCustomer(req, res) {
       message: "Customer Details fetched Successfully",
       singleCustomer,
     });
-  } catch (error) {
-    console.error(error);
-  }
+  }  catch (error) {
+  console.error("Signup error:", error.message);
+  console.error(error.stack);
+  res.status(500).json({ success: false, message: error.message });
+}
 }
 
 async function addNewCustomer(req, res) {
@@ -34,9 +36,11 @@ async function addNewCustomer(req, res) {
       message: "Customer Created Successfully",
       newCustomer,
     });
-  } catch (error) {
-    console.error(error);
-  }
+  }  catch (error) {
+  console.error("Signup error:", error.message);
+  console.error(error.stack);
+  res.status(500).json({ success: false, message: error.message });
+}
 }
 
 async function updateCustomer(req, res) {
@@ -49,9 +53,11 @@ async function updateCustomer(req, res) {
       message: "Customer Updated Successfully",
       updatedCustomer,
     });
-  } catch (error) {
-    console.error(error);
-  }
+  }  catch (error) {
+  console.error("Signup error:", error.message);
+  console.error(error.stack);
+  res.status(500).json({ success: false, message: error.message });
+}
 }
 
 async function deleteCustomer(req, res) {
@@ -63,9 +69,11 @@ async function deleteCustomer(req, res) {
       message: "Customer Deleted Successfully",
       deletedCustomer,
     });
-  } catch (error) {
-    console.error(error);
-  }
+  }  catch (error) {
+  console.error("Signup error:", error.message);
+  console.error(error.stack);
+  res.status(500).json({ success: false, message: error.message });
+}
 }
 
 module.exports = {

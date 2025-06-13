@@ -16,7 +16,6 @@ app.use(morgan("dev"));
 
 var corsOptions = {
   origin: "https://crm-humai.vercel.app",
-  origin: "https://crm-backend-adnans-projects-f816479d.vercel.app",
   optionsSuccessStatus: 200, 
 };
 app.get("/", (req, res) => {

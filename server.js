@@ -16,14 +16,14 @@ app.use(morgan("dev"));
 
 var corsOptions = {
   origin: "https://crm-humai.vercel.app",
-  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+  optionsSuccessStatus: 200, 
 };
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
-
-app.use("/api", cors(corsOptions), customerRoute);
-app.use("/api", cors(corsOptions), userRoute);
+app.use(cors(corsOptions)); 
+app.use("/api", customerRoute);
+app.use("/api", userRoute);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {

@@ -9,7 +9,7 @@ async function signUp(req, res) {
   try {
     const { name, email, password, role } = req.body;
 
-    if ((!name || !email || !password, !role)) {
+    if ((!name || !email || !password || !role)) {
       return res.status(400).json({
         error: "Invalid input",
         message: "Please enter a name, email address, and password.",
@@ -35,9 +35,14 @@ async function signUp(req, res) {
       message: "User created successfully",
       data: newUser,
     });
-  } catch (error) {
-    console.error(error);
-  }
+  }catch (error) {
+  console.error(error);
+  res.status(500).json({
+    success: false,
+    message: "Internal Server Error",
+  });
+}
+
 }
 
 async function login(req, res) {
@@ -64,8 +69,13 @@ async function login(req, res) {
 
     res.status(200).json({ success: true, token, user });
   } catch (error) {
-    console.error(error);
-  }
+  console.error(error);
+  res.status(500).json({
+    success: false,
+    message: "Internal Server Error",
+  });
+}
+
 }
 
 async function deleteUser(req, res) {
@@ -78,8 +88,13 @@ async function deleteUser(req, res) {
       deletedCustomer,
     });
   } catch (error) {
-    console.error(error);
-  }
+  console.error(error);
+  res.status(500).json({
+    success: false,
+    message: "Internal Server Error",
+  });
+}
+
 }
 
 module.exports = {

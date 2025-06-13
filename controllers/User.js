@@ -35,13 +35,12 @@ async function signUp(req, res) {
       message: "User created successfully",
       data: newUser,
     });
-  }catch (error) {
-  console.error(error);
-  res.status(500).json({
-    success: false,
-    message: "Internal Server Error",
-  });
+  } catch (error) {
+  console.error("Signup error:", error.message);
+  console.error(error.stack);
+  res.status(500).json({ success: false, message: error.message });
 }
+
 
 }
 
@@ -69,12 +68,11 @@ async function login(req, res) {
 
     res.status(200).json({ success: true, token, user });
   } catch (error) {
-  console.error(error);
-  res.status(500).json({
-    success: false,
-    message: "Internal Server Error",
-  });
+  console.error("Login error:", error.message);
+  console.error(error.stack);
+  res.status(500).json({ success: false, message: error.message });
 }
+
 
 }
 
